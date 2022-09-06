@@ -8,28 +8,27 @@ public class kryptering {
 
         String input = JOptionPane.showInputDialog(null,"Det som ska krypteras här tack");
         String key = JOptionPane.showInputDialog(null,"Nyckel här tack");
-        String output = "";
-        int[] hexInput = new int[input.length()];
-        int[] hexKey = new int[key.length()];
+        int[] Input = new int[input.length()];
+        int[] Output = new int[input.length()];
+        int[] Key = new int[key.length()];
 
         for(int i = 0; i<input.length() ; i++){
-            hexInput[i] = input.charAt(i);
+            Input[i] = input.charAt(i);
         }
 
         for(int i = 0; i<key.length() ; i++){
-            hexKey[i] = key.charAt(i);
+            Key[i] = key.charAt(i);
         }
-        output += (Encrypt(input.length(),hexInput,hexKey));
-        System.out.println(output);
+
+        for(int i = 0; i<input.length(); i++){
+           Output[i] += (Encrypt(i,Input,Key));
+           System.out.print((char)(Output)[i]);
+        }
+        System.out.println("");
     }
 
-    static int[] Encrypt(int length, int hexInput[], int hexKey[]){
-
-        int[] output = new int[length];
-
-        for(int i=0; i > length; i++){
-        output[i] += hexInput[i] ^ hexKey[i];
-        }
-        return output;
+    static int Encrypt(int i, int Input[], int Key[]){
+        int out = Input[i] ^ Key[i];
+        return out;
     }
 }
