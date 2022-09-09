@@ -15,10 +15,6 @@ public class kryptering {
             Key[i] = key.charAt(i-(keyWrap*key.length()));
         }
 
-        for(int i = 0; i<key.length() ; i++){
-        }
-
-
         for(int i = 0; i<input.length(); i++){
            Output[i] += (Encrypt(i,Input,Key));
            System.out.print((char)(Output)[i]);
