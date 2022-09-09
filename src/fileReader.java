@@ -24,12 +24,12 @@ public class fileReader {
     private static ArrayList<String> readAllText(BufferedReader inFile) {
         ArrayList<String> text = new ArrayList<>();
         try{
-            String line = inFile.readlLine();
+            String line = inFile.readLine();
             while(line != null) {
                 text.add(line);
                 line = inFile.readLine();
             }
-        }
+        } catch ()
     }
 
     private static BufferedReader openTextFileForReading(String file) {
