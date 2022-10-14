@@ -35,4 +35,8 @@ public class KrypteringModel {
 
          */
     }
+
+    public void encrypt(String text, String key) {
+
+    }
 }

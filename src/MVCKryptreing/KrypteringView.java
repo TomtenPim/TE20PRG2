@@ -4,11 +4,11 @@ import javax.swing.*;
 
 public class KrypteringView extends JFrame{
         private JLabel textLabel = new JLabel("Skriv in det du vill kryptera här.");
-        private JTextField text = new JTextField(10);
+        public JTextField text = new JTextField(10);
         private JLabel keyLabel = new JLabel("Skriv in din krypteringsnyckel här.");
-        private JTextField key = new JTextField(10);
+        public JTextField key = new JTextField(10);
         private JButton encryptButton = new JButton("Kryptera");
-        private JTextField showEncryption = new JTextField(10);
+        public JTextField showEncryption = new JTextField(10);
     private JPanel View;
 
     KrypteringView() {
