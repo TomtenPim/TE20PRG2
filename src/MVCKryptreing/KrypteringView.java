@@ -32,8 +32,8 @@ public class KrypteringView extends JFrame{
         return (key.getText());
     }
 
-    public void setCrypt(int solution) {
-        showEncryption.setText(Integer.toString(solution));
+    public void setCrypt(String solution) {
+        showEncryption.setText(solution);
     }
 
     // If the calculateButton is clicked execute a method
@@ -51,5 +51,8 @@ public class KrypteringView extends JFrame{
     public static void main(String[] args) {
         KrypteringView test = new KrypteringView();
         test.setVisible(true);
+    }
+
+    public void showEncryption(String encryptValue) {
     }
 }
