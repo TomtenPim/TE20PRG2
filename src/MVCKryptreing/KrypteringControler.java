@@ -38,6 +38,6 @@ public class KrypteringControler {
     }
 
     public static void main(String[] args) {
-        KrypteringControler crypttest = new KrypteringControler(new KrypteringView(),new KrypteringModel());
+        KrypteringControler krypteringRun = new KrypteringControler(new KrypteringView(),new KrypteringModel());
     }
 }
