@@ -12,19 +12,21 @@ public class Pong {
         this.height = height;
     }
     public void update () {
+        b.move();
+        checkCollision();
 
     }
     private void checkCollision () {
-        if (b.y < 0 ||b.y > height){
+        if (b.getY() < 0 ||b.getY() > height){
             b.bounce();
         }
-        if (b.x < 0){
-            if(b.y < p1.getY() ||b.y > p1.getY()+10 ){
+        if (b.getX() < p1.getX()){
+            if(b.getY() < p1.getY() ||b.getY() > p1.getY()+ p1.gedWidth() ){
                 b.bounce(p1);
             }
         }
-        if (b.x > width){
-            if(b.y < p2.getY() ||b.y > p2.getY()+10 ){
+        if (b.getX() > p2.getX()){
+            if(b.getY() < p2.getY() ||b.getY() > p2.getY()+ p1.gedWidth() ){
                 b.bounce(p2);
             }
         }
