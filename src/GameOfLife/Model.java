@@ -1,13 +1,17 @@
 package GameOfLife;
 
-import java.awt.*;
-
-public class Model {
+public class Model{
     int height;
     int width;
+    Cell cells[][];
 
-    public Model(int height, int width){
 
+    public Model(int width, int height){
+        for(int x = 0; x < width; x++){
+            for(int y = 0; y < width; y++){
+                Cell cells = new Cell(x,y);
+            }
+        }
     }
 
     public void update(){
