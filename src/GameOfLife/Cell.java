@@ -1,15 +1,26 @@
 package GameOfLife;
 
 public class Cell {
-    int[][] poss;
-    public boolean alive;
-    public int neighbours;
 
-    public Cell(int x, int y){
-        this.poss =
+    public boolean alive;
+    public boolean willLive;
+    public boolean willDie;
+
+    public Cell(boolean alive){
+        this.alive = alive;
     }
-    public int getNeighbours(){return neighbours;}
+
     public boolean getAlive(){return alive;}
+    public boolean getWillLive(){return willLive;}
+    public boolean getWillDie(){return willDie;}
+
+    public void setWillLive(boolean willLive){
+        this.willLive = willLive;
+    }
+    public void setWillDie(boolean willDie){
+        this.willDie = willDie;
+    }
+
     public void setAlive(){
         this.alive = true;
     }
