@@ -1,26 +1,32 @@
 package GameOfLife;
 
+import java.util.ArrayList;
+
 public class Model{
     int height;
     int width;
     int neighbours;
-    boolean alive = true;
-    Cell cells[][] = new Cell[width][height];
+    Cell cells[][];
 
 
     public Model(int width, int height){
-        Cell cells[][] = new Cell[width][height];
+        this.width = width;
+        this.height = height;
+
+        this.cells = new Cell[this.width][this.height];
         //Skapar alla celler
 
-        for(int x = 0; x < width; x++){
-            for(int y = 0; y < height; y++){
+        for(int x = 0; x < this.width; x++){
+            for(int y = 0; y < this.height; y++){
                 cells[x][y] = new Cell(false);
             }
         }
 
-        cells[5][5] = new Cell(true);
         cells[7][8] = new Cell(true);
-        cells[3][4] = new Cell(true);
+        cells[8][9] = new Cell(true);
+        cells[9][7] = new Cell(true);
+        cells[9][8] = new Cell(true);
+        cells[9][9] = new Cell(true);
     }
 
     public void update(){
@@ -31,7 +37,7 @@ public class Model{
             for(int y = 1; y < height-1; y++){
                 int neighbours = 0;
 
-                if(cells[x][y].alive == true){
+                if(cells[x][y].getAlive() == true){
                     neighbours--;
                 }
 
@@ -71,8 +77,8 @@ public class Model{
 
     }
 
-    public Shape[] getShapes(){
-        Point[] points = new Point[width*height];
+
+         /*Point[] points = new Point[width*height];
 
         for(int x = 1; x < width-1; x++){
             for(int y = 1; y < height-1; y++) {
@@ -80,7 +86,37 @@ public class Model{
                     points[x * (y * width-2)] = new Point(x, y);
                 }
             }
+        }*/
+
+    public Shape[] getShapes() {
+
+        System.out.println("width: " + width + " height: " + height);
+
+        ArrayList<Point> points = new ArrayList<Point>();
+
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                if (cells[x][y].getAlive() == true) {
+                    System.out.println("x: " + x + " y: " + y);
+                    points.add(new Point(x, y));
+                }
+            }
         }
-        return (Shape[])points;
+/*
+        for (int x = 1; x < width - 1; x++) {
+            for (int y = 1; y < height - 1; y++) {
+                if (cells[x][y].getAlive() == true) {
+                    System.out.println("x:" + x + "y:" + y);
+                }
+            }
+        }
+
+ */
+
+        Point[] pixelsToDisplay = new Point[points.size()];
+        points.toArray(pixelsToDisplay);
+
+        return (Shape[]) pixelsToDisplay;
+
     }
 }
