@@ -8,7 +8,6 @@ public class Model{
     int neighbours;
     Cell cells[][];
 
-
     public Model(int width, int height){
         this.width = width;
         this.height = height;
@@ -19,6 +18,8 @@ public class Model{
         for(int x = 0; x < this.width; x++){
             for(int y = 0; y < this.height; y++){
                 cells[x][y] = new Cell(false);
+                cells[x][y].setWillDie(false);
+                cells[x][y].setWillLive(false);
             }
         }
 
@@ -35,83 +36,77 @@ public class Model{
 
         for(int x = 1; x < width-1; x++){
             for(int y = 1; y < height-1; y++){
-                int neighbours = 0;
-
-                if(cells[x][y].getAlive() == true){
-                    neighbours--;
-                }
+                    neighbours = 0;
 
                 //Kollar alla celler runt x,y och räknar antalet levande celler.
 
                 for(int x1 = -1; x1 < 2; x1++){
                     for(int y1 = -1; y1 < 2; y1++){
-                        if(cells[x+x1][y+x1].getAlive() == true) {
+                        if(cells[x+x1][y+y1].getAlive() == true) {
                             neighbours++;
                         }
                     }
                 }
 
+                //Kollar om den egna cellen x,y lever och räknar bort den om den gör det.
+
+                if(cells[x][y].getAlive() == true){
+                    neighbours--;
+                }
+
+                //Garanterar att saker inte kommer ihåg att de flippas och råkar göra det extra gånger
+
                 cells[x][y].setWillDie(false);
                 cells[x][y].setWillLive(false);
 
-                if(neighbours != 2 || neighbours != 3)
-                cells[x][y].setWillDie(true);
+                //Reglerna för Game of Life: börja lev om du har 3 grannar, fortsätt om du har 2 eller 3, dö annars.
 
-                if(neighbours == 3 && cells[x][y].getAlive() == false)
+                if(neighbours == 3 || (neighbours == 2 && cells[x][y].getAlive() == true)) {
                     cells[x][y].setWillLive(true);
+                }
+                else{
+                    cells[x][y].setWillDie(true);
+                }
             }
         }
 
-        //Byter utifrån markering
+        //Byter tillstånd utifrån markering
 
         for(int x = 1; x < width; x++){
             for(int y = 1; y < height; y++){
+
+                //Om cellen ska dö, dö.
+
                 if (cells[x][y].getWillDie() == true){
                     cells[x][y].setDead();
                 }
+
+                //Om cellen ska leva, börja lev.
+
                 if (cells[x][y].getWillLive() == true){
                     cells[x][y].setAlive();
                 }
             }
         }
-
     }
 
-
-         /*Point[] points = new Point[width*height];
-
-        for(int x = 1; x < width-1; x++){
-            for(int y = 1; y < height-1; y++) {
-                if (cells[x][y].alive == true) {
-                    points[x * (y * width-2)] = new Point(x, y);
-                }
-            }
-        }*/
-
     public Shape[] getShapes() {
-
-        System.out.println("width: " + width + " height: " + height);
 
         ArrayList<Point> points = new ArrayList<Point>();
 
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
+
+                //Kollar om cellen x,y är vid liv
+
                 if (cells[x][y].getAlive() == true) {
-                    System.out.println("x: " + x + " y: " + y);
+
+                    //Om den är det, rita ut den
+
                     points.add(new Point(x, y));
                 }
             }
         }
-/*
-        for (int x = 1; x < width - 1; x++) {
-            for (int y = 1; y < height - 1; y++) {
-                if (cells[x][y].getAlive() == true) {
-                    System.out.println("x:" + x + "y:" + y);
-                }
-            }
-        }
-
- */
 
         Point[] pixelsToDisplay = new Point[points.size()];
         points.toArray(pixelsToDisplay);
