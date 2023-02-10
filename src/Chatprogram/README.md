@@ -82,7 +82,16 @@ servern skickar samt visar det
 Idag har jag startat upp projektet och skapat alla filer
 som jag kommer att behöva för projektet. 
 
-Nästa lektion så ska jag
-Ska jag designa min view.form varpå jag sedan kommer att
+Nästa lektion så ska designa min view. form varpå jag sedan kommer att
 börja koda själva server och klienten.
 
+### Fredag 02-10:
+Idag har jag skapat en minimal view.form samt segt 
+påbörjat med min server och försökt skaffa mig mer 
+förståelse för hur server och klient koden fungerar och
+arbetar tillsammans.
+
+Nästa gång ska jag fortsätta vidare med server koden men
+även börja på klientsidan också då server/klient koden jag
+har att utgå ifrån använder sig av delar som definieras 
+hos den andra. 

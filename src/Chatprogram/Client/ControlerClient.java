@@ -1,4 +1,4 @@
 package Chatprogram.Client;
 
-public class ViewChat {
+public class ControlerClient {
 }

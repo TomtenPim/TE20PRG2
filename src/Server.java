@@ -5,8 +5,7 @@ import java.util.Scanner;
 
 public class Server {
     ServerSocket server;
-    Socket client1;
-    Socket client2;
+    Socket client;
 
     PrintWriter out;
     BufferedReader in;
@@ -21,32 +20,21 @@ public class Server {
         System.out.println("Server started...");
     }
 
-    private void acceptClient1() {
+    private void acceptClient() {
         try {
-            client1 = server.accept();
+            client = server.accept();
         } catch (IOException e) {
-            System.err.println("Failed to connect to client1");
+            System.err.println("Failed to connect to client");
             e.printStackTrace();
         }
-        System.out.println("client1 connected...");
+        System.out.println("client connected...");
     }
 
-    private void acceptClient2() {
-        try {
-            client2 = server.accept();
-        } catch (IOException e) {
-            System.err.println("Failed to connect to client2");
-            e.printStackTrace();
-        }
-        System.out.println("client2 connected...");
-    }
 
     private void getStreams() {
         try {
-            out = new PrintWriter(client1.getOutputStream(), true);
-            out = new PrintWriter(client2.getOutputStream(), true);
-            in = new BufferedReader(new InputStreamReader(client1.getInputStream()));
-            in = new BufferedReader(new InputStreamReader(client2.getInputStream()));
+            out = new PrintWriter(client.getOutputStream(), true);
+            in = new BufferedReader(new InputStreamReader(client.getInputStream()));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -65,7 +53,7 @@ public class Server {
 
     public static void main(String[] args) {
         Server s = new Server(4130);
-        s.acceptClient1();
+        s.acceptClient();
         s.getStreams();
         ListenerThread l = new ListenerThread(s.in, System.out);
         Thread listener = new Thread(l);
@@ -77,8 +65,7 @@ public class Server {
 
     private void shutdown() {
         try {
-            client1.close();
-            client2.close();
+            client.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
