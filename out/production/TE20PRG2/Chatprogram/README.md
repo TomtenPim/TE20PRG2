@@ -95,9 +95,3 @@ Nästa gång ska jag fortsätta vidare med server koden men
 även börja på klientsidan också då server/klient koden jag
 har att utgå ifrån använder sig av delar som definieras 
 hos den andra. 
-
-### Torsdag 02-16:
-Idag började på att implementera en view i klienten.
-
-Nästa gång hoppas jag på att får mer gjort på det än bara 
-början.
