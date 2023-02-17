@@ -59,7 +59,7 @@ Jag ska:
 * ✔ Skriva ner vad ditt program ska kunna göra i din readme.md. 
 * ✔ Skapa ett package för klienten och ett för servern 
 * ✔ Skapa de tre klasserna för MVC i var och en av servern och klienten 
-* Designa ett enkelt gui (i view.java) för servern och för klienten
+* ✔ Designa ett enkelt gui (i view.java) för servern och för klienten
 * Se till att controllern kan köra igång model och view
 * Skapa modellerna med enklast möjliga funktionalitet (uppkoppling och skicka och ta emot "Hej!")
 * Lägg till funktionerna en efter en
@@ -101,3 +101,10 @@ Idag började på att implementera en view i klienten.
 
 Nästa gång hoppas jag på att får mer gjort på det än bara 
 början.
+
+### Fredag 02-17:
+Denna lektion har jag kopplat samman min controler och view och fått den att
+starta igång allting ifrån min controller
+
+nästa gong ska jag arbeta vidare på min faktiska model, dvs den den som faktiskt
+gör något 
