@@ -14,4 +14,26 @@ public class ModelClient {
     PrintWriter out;
     BufferedReader in;
 
+    public ModelClient(String ip, int port){
+        try {
+            socket = new Socket(ip,port);
+        } catch (IOException e) {
+            System.err.println("Failed to connect to server");
+            e.printStackTrace();
+        }
+        System.out.println("Connection ready...");
+    }
+
+    public void getStreams() {
+        try {
+            out = new PrintWriter(socket.getOutputStream(), true);
+            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Streams ready...");
+    }
 }
+
+
+

@@ -106,5 +106,13 @@ början.
 Denna lektion har jag kopplat samman min controler och view och fått den att
 starta igång allting ifrån min controller
 
-nästa gong ska jag arbeta vidare på min faktiska model, dvs den den som faktiskt
+Nästa gång ska jag arbeta vidare på min faktiska model, dvs den den som faktiskt
 gör något 
+
+### Torsdag 02-23:
+Model har arbetats på under denna lektion.
+
+Nästa gång ska jag fortsätta att försöka konstruera och förstå Servern och Modeln
+
+
+

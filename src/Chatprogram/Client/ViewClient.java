@@ -14,5 +14,5 @@ public class ViewClient {
 
     public String getTextArea() { return textArea1.toString(); }
 
-    public void setTextField1() { }
+    public void setTextField1(String s) { textArea1 = new JTextArea(s); }
 }

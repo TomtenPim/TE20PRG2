@@ -12,9 +12,12 @@ public class ControlerClient {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
+        m.getStreams();
     }
 
     public static void main(String[] args) {
-        ControlerClient c = new ControlerClient(new ModelClient(), new ViewClient());
+        String ip = JOptionPane.showInputDialog(null,"Enter IP here");
+        int port = Integer.parseInt(JOptionPane.showInputDialog(null,"Enter port here (must be numbers)"));
+        ControlerClient c = new ControlerClient(new ModelClient(ip,port), new ViewClient());
     }
 }
