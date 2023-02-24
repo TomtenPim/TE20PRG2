@@ -55,7 +55,7 @@ public class Server {
         Server s = new Server(4130);
         s.acceptClient();
         s.getStreams();
-        ListenerThread l = new ListenerThread(s.in, System.out);
+        ListenerThreadOld l = new ListenerThreadOld(s.in, System.out);
         Thread listener = new Thread(l);
         listener.start();
         s.runProtocol();

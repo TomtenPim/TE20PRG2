@@ -1,5 +1,7 @@
 package Chatprogram.Client;
 
+import Chatprogram.ListenerThread;
+
 import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -32,6 +34,35 @@ public class ModelClient {
             e.printStackTrace();
         }
         System.out.println("Streams ready...");
+    }
+
+    private void runProtocol() {
+        Scanner tgb = new Scanner(System.in);
+        System.out.println("chatting...");
+        String msg = "";
+        while (!msg.equals("QUIT")) {
+            msg = tgb.nextLine();
+            out.println("CLIENT: " + msg);
+        }
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        ModelClient me = new ModelClient("10.80.45.132", 413);
+        me.getStreams();
+        ListenerThread l = new ListenerThread(me.in, System.out);
+        Thread listener = new Thread(l);
+        listener.start();
+        me.runProtocol();
+        listener.join();
+        me.shutDown();
+    }
+
+    private void shutDown() {
+        try {
+            socket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 

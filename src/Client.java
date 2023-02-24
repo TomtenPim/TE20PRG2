@@ -44,7 +44,7 @@ public class Client {
     public static void main(String[] args) {
         Client me = new Client("10.80.45.132" ,4130);
         me.getStreams();
-        ListenerThread l = new ListenerThread(me.in, System.out);
+        ListenerThreadOld l = new ListenerThreadOld(me.in, System.out);
         Thread listener = new Thread(l);
         listener.start();
         me.runProtocol();

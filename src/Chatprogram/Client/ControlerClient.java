@@ -15,9 +15,12 @@ public class ControlerClient {
         m.getStreams();
     }
 
+
+
     public static void main(String[] args) {
-        String ip = JOptionPane.showInputDialog(null,"Enter IP here");
+        String ip = JOptionPane.showInputDialog(null,"Enter IPv4 here");
         int port = Integer.parseInt(JOptionPane.showInputDialog(null,"Enter port here (must be numbers)"));
         ControlerClient c = new ControlerClient(new ModelClient(ip,port), new ViewClient());
     }
+
 }

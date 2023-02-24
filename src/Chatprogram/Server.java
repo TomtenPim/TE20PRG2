@@ -28,6 +28,7 @@ public class Server {
     private void acceptClient() {
         try {
             client[clientCount] = server.accept();
+            clientCount++;
         } catch (IOException e) {
             System.err.println("Failed to connect to client");
             e.printStackTrace();
@@ -35,4 +36,51 @@ public class Server {
         System.out.println("client connected...");
         clientCount++;
     }
+
+    private void getStreams() {
+        try {
+            for(int i = 0; i < 10; i++){
+                out = new PrintWriter(client[i].getOutputStream(), true);
+                in = new BufferedReader(new InputStreamReader(client[i].getInputStream()));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Streams ready...");
+    }
+
+    /*private void runProtocol() {
+        Scanner tgb = new Scanner(System.in);
+        System.out.println("chatting...");
+        String msg = "";
+        while (!msg.equals("QUIT")) {
+            msg = tgb.nextLine();
+            out.println("SERVER: " + msg);
+        }
+    }*/
+
+    public static void main(String[] args) throws InterruptedException {
+        Server s = new Server(413);
+        int clientCount = 0;
+        s.acceptClient();
+        s.getStreams();
+        ListenerThread l = new ListenerThread(s.in, System.out);
+        Thread listener = new Thread(l);
+        listener.start();
+        //s.runProtocol();
+        listener.join();
+        s.shutdown();
+    }
+
+    private void shutdown() {
+        try {
+            for(int i = 0; i < 10; i++) {
+                client[i].close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }
