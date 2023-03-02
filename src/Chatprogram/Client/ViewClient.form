@@ -14,7 +14,9 @@
             <preferred-size width="435" height="30"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <text value=""/>
+        </properties>
       </component>
       <component id="30838" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
         <constraints>

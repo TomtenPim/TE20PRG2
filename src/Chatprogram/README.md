@@ -114,7 +114,7 @@ Model har arbetats på under denna lektion.
 
 Nästa gång ska jag fortsätta att försöka konstruera och förstå Servern och Modeln
 
-### Fredag 02_24:
+### Fredag 02-24:
 Idag har jag fått huvudvärk och arbetat vidare på Servern och Modeln. 
 Har lyckats koppla samman dem men de dör så fort den försöker köra serverns 
 getStreams.
@@ -122,3 +122,7 @@ getStreams.
 Nästa gång hoppas jag att jag kan hamra bort de problemen och få en stabil 
 funktionell koppling mellan Server och ModelClient.
 
+### Torsdag 03-02:
+Totalt hjärnsläpp. Tror knappt att jag fått något gjort idag :(
+
+Nästa gång måste jag vara mer produktiv.

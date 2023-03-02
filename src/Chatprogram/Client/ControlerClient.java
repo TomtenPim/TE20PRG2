@@ -1,5 +1,7 @@
 package Chatprogram.Client;
 
+import Chatprogram.ListenerThread;
+
 import javax.swing.*;
 
 public class ControlerClient {
@@ -13,6 +15,7 @@ public class ControlerClient {
         frame.pack();
         frame.setVisible(true);
         m.getStreams();
+
     }
 
 
