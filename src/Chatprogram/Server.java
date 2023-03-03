@@ -40,8 +40,13 @@ public class Server {
     private void getStreams() {
         try {
             for(int i = 0; i < 10; i++){
-                out = new PrintWriter(client[i].getOutputStream(), true);
-                in = new BufferedReader(new InputStreamReader(client[i].getInputStream()));
+                try{
+                    out = new PrintWriter(client[i].getOutputStream(), true);
+                    in = new BufferedReader(new InputStreamReader(client[i].getInputStream()));
+                }
+                catch (NullPointerException exception){
+
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();

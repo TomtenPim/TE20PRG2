@@ -12,7 +12,9 @@ public class ViewClient {
         return ClientView;
     }
 
-    public String getTextArea() { return textArea1.toString(); }
+    public String getTextField() { return textField1.toString(); }
+
+    public JButton getSendButton() { return sendButton; }
 
     public void setTextField1(String s) { textArea1 = new JTextArea(s); }
 }

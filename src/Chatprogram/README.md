@@ -126,3 +126,11 @@ funktionell koppling mellan Server och ModelClient.
 Totalt hjärnsläpp. Tror knappt att jag fått något gjort idag :(
 
 Nästa gång måste jag vara mer produktiv.
+
+### Fredag 03-03:
+Woooo!!! Kan koppla upp med min clients psvm till Servern, skriva och det dyker upp
+utan problem på servern. Har även börjat att sammankoppla modeln och viewn
+
+nästa gång ska jag fortsätta med att koppla ihop viewn och modeln. 
+
+Synes efter lovet :)
