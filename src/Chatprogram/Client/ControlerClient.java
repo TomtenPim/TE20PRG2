@@ -20,8 +20,7 @@ public class ControlerClient {
 
         v.getSendButton().addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                m.setMessage(v.getTextField());
+            public void actionPerformed(ActionEvent e) {m.setMessage(v.getTextField());
             }
         });
 
