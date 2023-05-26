@@ -11,10 +11,20 @@ public class Creature {
     public int proficiencyBonus;
     public int dmgDice;
     public int dmgDiceCount;
+    public int multiattack;
     public int combatBonus;
     public boolean crit = false;
     public String critMsg = "";
 
+    /*
+    public Creature() {
+
+    }
+
+    public Creature(int[] s ) {
+        this.stats = s;
+    }
+    */
     public void attack(Creature foe){
         int hit = roll(1,20,combatBonus);
 
