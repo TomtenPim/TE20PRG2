@@ -40,13 +40,6 @@ public class goblin extends Creature {
             String SQLQuery = "SELECT * FROM sa04monsters WHERE name ='goblin'";
             ResultSet result = stmt.executeQuery(SQLQuery);
 
-            /*ResultSetMetaData metadata = result.getMetaData();
-
-            int numCols = metadata.getColumnCount();
-            for (int i = 1 ; i <= numCols ; i++) {
-                System.out.println(metadata.getColumnClassName(i));
-            }*/
-
             while (result.next()) {
                 name = result.getString("name");
                 stats[0] = result.getInt("stren");
